@@ -18,7 +18,7 @@ def get_projects():
           if topic_str[:7] == "project":
               project_dict["html_url"] = project["html_url"]
               project_dict["description"] = project["description"]
-              project_dict["name"] = project["name"]
+              project_dict["image_url"] = project["homepage"]
               project_dict["filter"] = topic_str[8:]
               project_list.append(project_dict)
   return project_list

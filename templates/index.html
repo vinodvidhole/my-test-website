@@ -318,8 +318,8 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">ML</li>
-              <li data-filter=".filter-card">EDA</li>
+              <li data-filter=".filter-machinelearning">ML</li>
+              <li data-filter=".filter-eda">EDA</li>
               <li data-filter=".filter-webscraping">Web Scraping</li>
             </ul>
           </div>
@@ -332,7 +332,7 @@
             <div class="portfolio-links">
                 <a href= {{project["html_url"]}}
                 class="details-link" >
-                  <img src="static/img/portfolio/{{project["name"]}}.jpg" class="img-fluid" alt="">
+                  <img src={{project["image_url"]}} class="img-fluid" alt="">
                 </a>
             </div>
             <div data-aos="fade-up" data-aos-delay="100">
@@ -340,46 +340,36 @@
             </div>
           </div>
         {% endfor %}  
-<!--
-          <div class="col-lg-4 col-md-6 portfolio-item filter-webscraping">
-            <div class="portfolio-links">
-                <a href="https://github.com/vinodvidhole/automate-web-scraping-aws-lambda"
-                class="details-link" title="Automate Web Scraping Using Python, AWS Lambda, Amazon S3 & Amazon EventBridge CloudWatch">
-                  <img src="static/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                </a>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="100">
-              <p>Automate Web Scraping</p>
-            </div>
-          </div>
+
           
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-machinelearning">
             <div class="portfolio-links">
                 <a href="https://github.com/vinodvidhole/automate-web-scraping-aws-lambda"
-                class="details-link" title="XYZ">
+                class="details-link">
                   <img src="static/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
                 </a>
             </div>
             <div data-aos="fade-up" data-aos-delay="100">
-              <p>Machine Learning</p>
+              <h6>Machine Learning</h6>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-eda">
             <div class="portfolio-links">
                 <a href="https://github.com/vinodvidhole/automate-web-scraping-aws-lambda"
-                class="details-link" title="ABC">
+                class="details-link">
                   <img src="static/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
                 </a>
             </div>
             <div data-aos="fade-up" data-aos-delay="100">
-              <h4>Magnam dolores commodi suscipit</h4>
+              <h6>Magnam dolores commodi suscipit</h6>
             </div>
           </div>
--->
+
  
       </div>
-    </section><!-- End Portfolio Section -->
+    </section>
+    <!-- End Portfolio Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
