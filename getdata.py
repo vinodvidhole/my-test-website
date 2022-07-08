@@ -1,9 +1,10 @@
+import os
 import requests
 import json
 
 
 def get_projects():
-    git_hub_projects = "https://api.github.com/users/vinodvidhole/repos"
+    git_hub_projects = os.environ['GIT_HUB_REPOS']
     response = requests.get(git_hub_projects)
 
     if response.ok:
@@ -27,9 +28,9 @@ def get_projects():
 
 def get_medium_blogs():
     
-    medium_blogs = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@vinodvidhole"
-    blogs_icon_file = "https://gist.githubusercontent.com/vinodvidhole/3e20fc575f62e8cccda5d6b88cb1311f/raw/4113ccdc2d612700a7771e95d108cd0280fed083/blogs_icon.json"
-    
+    medium_blogs = os.environ['MEDIUM_BLOGS']
+    blogs_icon_file = os.environ['MEDIUM_ICONS']
+  
     response_blogs = requests.get(medium_blogs)
     response_icons = requests.get(blogs_icon_file)    
     
