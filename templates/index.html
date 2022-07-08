@@ -320,26 +320,28 @@
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">ML</li>
               <li data-filter=".filter-card">EDA</li>
-              <li data-filter=".filter-web">Web Scraping</li>
+              <li data-filter=".filter-webscraping">Web Scraping</li>
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          
+        {% for project in project_list %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-{{project["filter"]}}">
             <div class="portfolio-links">
-                <a href="https://github.com/vinodvidhole/yahoo-finance-scraper"
-                class="details-link" title="Web Scraping Yahoo! Finance using Python">
-                  <img src="static/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                <a href= {{project["html_url"]}}
+                class="details-link" >
+                  <img src="static/img/portfolio/{{project["name"]}}.jpg" class="img-fluid" alt="">
                 </a>
             </div>
             <div data-aos="fade-up" data-aos-delay="100">
-              <p>Web Scraping Yahoo! Finance using Python</p>
+              <h6>{{project["description"]}}</h6>
             </div>
           </div>
-          
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+        {% endfor %}  
+<!--
+          <div class="col-lg-4 col-md-6 portfolio-item filter-webscraping">
             <div class="portfolio-links">
                 <a href="https://github.com/vinodvidhole/automate-web-scraping-aws-lambda"
                 class="details-link" title="Automate Web Scraping Using Python, AWS Lambda, Amazon S3 & Amazon EventBridge CloudWatch">
@@ -374,7 +376,7 @@
               <h4>Magnam dolores commodi suscipit</h4>
             </div>
           </div>
-
+-->
  
       </div>
     </section><!-- End Portfolio Section -->
