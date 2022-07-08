@@ -379,44 +379,15 @@
           <h2>Blogs</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
-
         <div class="row">
-
-<!--
-        {% for blog in blogs_list %}
-          <p>{{project["title"]}}</p>
-          <p>{{project["link"]}}</p>
-          <p>{{project["description"]}}</p>
-        {% endfor %}
--->       
-          
+          {% for blog in blogs_list %}
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bx bi-card-checklist"></i></div>
-            <h4 class="title"><a href="https://blog.jovian.ai/getting-started-with-pandas-for-data-science-53261fe854bd">Getting Started with Pandas for Data Science</a></h4>
-            <p class="description">Essential Pandas functions for Data Analysis</p>
+            <div class="icon"><i class="bx bi-{{blog["icon"]}}"></i></div>
+            <h4 class="title"><a href={{blog["link"]}}>{{blog["title"]}}</a></h4>
+            <p class="description">{{blog["description"]}}</p>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="https://blog.jovian.ai/useful-numpy-functions-you-should-know-74cdf5bfa860">Useful Numpy Functions You Should Know
-            </a></h4>
-            <p class="description">Numpy functions and their respective use cases</p>
+          {% endfor %}
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="https://blog.jovian.ai/web-scraping-yahoo-finance-using-python-7c4612fab70c">Web Scraping Yahoo! Finance using Python</a></h4>
-            <p class="description">A detailed guide for web scraping https://finance.yahoo.com using Requests, BeautifulSoup, Selenium, HTML tags, and embedded JSON data.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-list"></i></div>
-            <h4 class="title"><a href="https://blog.jovian.ai/automate-web-scraping-using-python-aws-lambda-amazon-s3-amazon-eventbridge-cloudwatch-c4c982c35fa7">Automate Web Scraping Using Python, AWS Lambda, Amazon S3 & Amazon EventBridge CloudWatch</a></h4>
-            <p class="description">A step-by-step guide to automating web scraping using Python, AWS Lambda, Amazon S3 & Amazon EventBridge CloudWatch.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bx bx-book-content"></i></div>
-            <h4 class="title"><a href="https://blog.jovian.ai/automate-web-scraping-using-python-aws-lambda-amazon-s3-amazon-eventbridge-cloudwatch-c4c982c35fa7">Automate Web Scraping Using Python, AWS Lambda, Amazon S3 & Amazon EventBridge CloudWatch</a></h4>
-            <p class="description">A step-by-step guide to automating web scraping using Python, AWS Lambda, Amazon S3 & Amazon EventBridge CloudWatch.</p>
-          </div>
-        </div>
         
       </div>
     </section><!-- End Services Section -->

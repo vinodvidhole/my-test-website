@@ -24,20 +24,28 @@ def get_projects():
                 project_list.append(project_dict)
     return project_list
 
-'''
-def get_medium_blogs():
-    medium_blogs = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@vinodvidhole"
-    response_blogs = requests.get(medium_blogs)
 
+def get_medium_blogs():
+    
+    medium_blogs = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@vinodvidhole"
+    blogs_icon_file = "https://gist.githubusercontent.com/vinodvidhole/3e20fc575f62e8cccda5d6b88cb1311f/raw/4113ccdc2d612700a7771e95d108cd0280fed083/blogs_icon.json"
+    
+    response_blogs = requests.get(medium_blogs)
+    response_icons = requests.get(blogs_icon_file)    
+    
+    if response_icons.ok:
+        blog_icon_data = json.loads(response_icons.text)
+        
     if response_blogs.ok:
         blog_data = json.loads(response_blogs.text)
 
         blogs_list = []
         for blog in blog_data["items"]:
             blog_dict = {}
-
+            
+            blog_link = blog["link"]
             blog_dict["title"] = blog["title"]
-            blog_dict["link"] = blog["link"]
+            blog_dict["link"] = blog_link
 
             found = False
             for index, desc in enumerate(
@@ -48,8 +56,10 @@ def get_medium_blogs():
                 else:
                     found = True
                 if found:
-                    blog_dict["description"] = desc[(desc.find('<h4>') + 4):]
+                    blog_dict["description"] = desc[(desc.find('<h4>') + 4):].replace("&amp;", "and")
                     break
+                    
+            blog_dict["icon"] = list(filter(lambda item: item['link'] == blog_link, blog_icon_data))[0]['icon']        
             blogs_list.append(blog_dict)
+                        
     return blogs_list
-'''
