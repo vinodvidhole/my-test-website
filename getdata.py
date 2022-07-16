@@ -27,10 +27,9 @@ def get_projects():
 
 
 def get_medium_blogs():
-    
     medium_blogs = os.environ['MEDIUM_BLOGS']
     blogs_icon_file = os.environ['MEDIUM_ICONS']
-  
+    
     response_blogs = requests.get(medium_blogs)
     response_icons = requests.get(blogs_icon_file)    
     
@@ -59,8 +58,12 @@ def get_medium_blogs():
                 if found:
                     blog_dict["description"] = desc[(desc.find('<h4>') + 4):].replace("&amp;", "and")
                     break
-                    
-            blog_dict["icon"] = list(filter(lambda item: item['link'] == blog_link, blog_icon_data))[0]['icon']        
+            icon_list = list(filter(lambda item: item['link'] == blog_link, blog_icon_data))
+            if len(icon_list) > 0 :
+                blog_dict["icon"] = icon_list[0]['icon']
+            else:
+                blog_dict["icon"] = 'file-earmark-text'
+                
             blogs_list.append(blog_dict)
                         
     return blogs_list
